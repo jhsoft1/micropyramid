@@ -1,10 +1,10 @@
 from django import forms
 from django.forms.models import modelformset_factory
-from myapp.models import User
+from myapp.models import User, Group
 
 
 class UserForm(forms.ModelForm):
-    birth_date = forms.DateField(widget=DateTimePicker(options={"format": "YYYY-MM-DD", "pickSeconds": False}))
+    birth_date = forms.DateField()  # widget=DateTimePicker(options={"format": "YYYY-MM-DD", "pickSeconds": False}))
 
     class Meta:
         model = User

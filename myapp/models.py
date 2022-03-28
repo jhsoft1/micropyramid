@@ -3,7 +3,7 @@ from django.db import models
 
 # https://micropyramid.com/blog/understanding-djangos-model-formsets-in-detail-and-their-advanced-usage/
 class Group(models.Model):
-    name = models.CharField()
+    name = models.CharField(max_length=50)
 
 
 class User(models.Model):
