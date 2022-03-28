@@ -3,7 +3,10 @@ from django.db import models
 
 # https://micropyramid.com/blog/understanding-djangos-model-formsets-in-detail-and-their-advanced-usage/
 class Group(models.Model):
-    name = models.CharField(max_length=50)
+    business_profile_id = models.CharField(max_length=50)
+
+    def __str__(self):
+        return self.business_profile_id
 
 
 class User(models.Model):
@@ -11,3 +14,6 @@ class User(models.Model):
     last_name = models.CharField(max_length=150)
     user_group = models.ForeignKey(Group, on_delete=models.CASCADE)
     birth_date = models.DateField(blank=True, null=True)
+
+    def __str__(self):
+        return f'{self.first_name} {self.last_name} {self.user_group} {self.birth_date}'
